@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9.18" client="site" method="upgrade">
+	<name>mod_orslider</name>
+	<author>open ROOM</author>
+	<creationDate>Abril 2020</creationDate>
+	<authorEmail>jaume.calafat@open-room.com</authorEmail>
+	<authorUrl>https://www.open-room.com</authorUrl>
+	<copyright>Copyright© 2019-2020</copyright>
+	<license>GNU/GPL</license>
+	<version>1.3.0</version>
+	<description>Con este módulo podremos crear un Slider (imagen de fondo con texto encima [OPCIONAL]) - v.1.3.0 Detect webp version exists and add</description>
+
+	<customContent />
+
+	<files>
+		<filename module="mod_orslider">mod_orslider.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="es-ES">es-ES.mod_orslider.ini</language>
+		<language tag="es-ES">es-ES.mod_orslider.sys.ini</language>
+		<language tag="en-GB">en-GB.mod_orslider.ini</language>
+		<language tag="en-GB">en-GB.mod_orslider.sys.ini</language>
+	</languages>
+
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
+	<config>
+		<fields name="params">
+			
+			<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
+				<field
+					name="prepare_content"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_PREPARE_CONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_PREPARE_CONTENT_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="timer"
+					type="number"
+					label="MOD_ORSLIDER_FIELD_TIMERSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_TIMERSLIDER_DESC"
+					default="5000"
+				/>
+				
+				<field
+					name="speed"
+					type="number"
+					label="MOD_ORSLIDER_FIELD_SPEEDSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_SPEEDSLIDER_DESC"
+					default="350"
+				/>
+			</fieldset>
+			
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+				
+			</fieldset>
+			
+			
+			
+			<fieldset name="slider_1" label="MOD_ORSLIDER_FIELD_SLAIDER_1">
+				<field
+					name="s1_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s1_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s1_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_2" label="MOD_ORSLIDER_FIELD_SLAIDER_2">
+				<field
+					name="s2_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s2_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s2_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_3" label="MOD_ORSLIDER_FIELD_SLAIDER_3">
+				<field
+					name="s3_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s3_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s3_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_4" label="MOD_ORSLIDER_FIELD_SLAIDER_4">
+				<field
+					name="s4_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s4_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s4_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_5" label="MOD_ORSLIDER_FIELD_SLAIDER_5">
+				<field
+					name="s5_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s5_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s5_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_6" label="MOD_ORSLIDER_FIELD_SLAIDER_6">
+				<field
+					name="s6_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s6_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s6_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_7" label="MOD_ORSLIDER_FIELD_SLAIDER_7">
+				<field
+					name="s7_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s7_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s7_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_8" label="MOD_ORSLIDER_FIELD_SLAIDER_8">
+				<field
+					name="s8_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s8_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s8_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="slider_9" label="MOD_ORSLIDER_FIELD_SLAIDER_9">
+				<field
+					name="s9_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s9_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s9_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			<fieldset name="slider_10" label="MOD_ORSLIDER_FIELD_SLAIDER_10">
+				<field
+					name="s10_activar"
+					type="radio"
+					label="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_LABEL"
+					description="MOD_ORSLIDER_FIELD_ACTIVARSLIDER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="s10_image"
+					type="media"
+					label="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="s10_content"
+					type="editor"
+					label="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_LABEL"
+					description="MOD_ORSLIDER_FIELD_SLAIDERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			
+			
+			
+		</fields>
+	</config>
+  <updateservers>
+    <server type="extension" name="Slider OR Template">https://webprojects.open-room.com/updates/mod_orslider/updates.xml</server>
+  </updateservers>
+</extension>
