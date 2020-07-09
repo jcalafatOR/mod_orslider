@@ -37,7 +37,7 @@ if(count($orSlider_list) > 0) { ?>
 	<?php
 		$or_tmpCuerrentLang = JFactory::getLanguage();
         $or_tmpDefaultLang = JComponentHelper::getParams('com_languages')->get('site');
-		$orsliderRouteFix = $or_tmpCuerrentLang->getTag() != $or_tmpDefaultLang ? "../" : "";
+		$orsliderRouteFix = "";//$or_tmpCuerrentLang->getTag() != $or_tmpDefaultLang ? "../" : "";
 		foreach($orSlider_list as $or_slider_id => $or_slider_content) {
 			if(JFile::exists(substr($or_slider_content['img'],0,-3).'webp'))
 			{ ?>
