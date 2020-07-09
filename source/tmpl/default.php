@@ -37,18 +37,17 @@ if(count($orSlider_list) > 0) { ?>
 	<?php
 		$or_tmpCuerrentLang = JFactory::getLanguage();
         $or_tmpDefaultLang = JComponentHelper::getParams('com_languages')->get('site');
-		$orsliderRouteFix = "";//$or_tmpCuerrentLang->getTag() != $or_tmpDefaultLang ? "../" : "";
 		foreach($orSlider_list as $or_slider_id => $or_slider_content) {
 			if(JFile::exists(substr($or_slider_content['img'],0,-3).'webp'))
 			{ ?>
-				.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $orsliderRouteFix.substr($or_slider_content['img'],0,-3).'webp';?>); }
-				.isSafari .or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $orsliderRouteFix.$or_slider_content['img'];?>); }
+				.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo substr($or_slider_content['img'],0,-3).'webp';?>); }
+				.isSafari .or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $or_slider_content['img'];?>); }
 				@supports (-webkit-touch-callout: default) {
-					.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $orsliderRouteFix.$or_slider_content['img'];?>); }
+					.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $or_slider_content['img'];?>); }
 				}
 			
 			<?php } else { ?>
-				.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $orsliderRouteFix.$or_slider_content['img'];?>); }
+				.or_slider<?php echo $orSliderClases; ?> > .or_slider_content > .or_slider_contentBlocks > .or_slider_<?php echo ($or_slider_id+1); ?> { background-image : url(<?php echo $or_slider_content['img'];?>); }
 			<?php } ?>			
 		
 	<?php } ?>
