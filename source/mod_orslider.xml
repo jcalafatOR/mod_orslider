@@ -7,8 +7,11 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>1.3.1</version>
-	<description>Con este módulo podremos crear un Slider (imagen de fondo con texto encima [OPCIONAL]) - v.1.3.1 Detect webp version exists and add</description>
+	<version>1.4.0</version>
+	<description>Con este módulo podremos crear un Slider (imagen de fondo con texto encima [OPCIONAL]) \n&lt;br /&gt;
+	====================================================================================&lt;br /&gt;
+	 - v.1.4.0 New Joomla version. &lt;br /&gt;
+	 - v.1.3.1 Detect webp version exists and add </description>
 
 	<customContent />
 
@@ -401,6 +404,6 @@
 		</fields>
 	</config>
   <updateservers>
-    <server type="module" name="Slider OR Template">https://webprojects.open-room.com/updates/mod_orslider/updates.xml</server>
+    <server type="extension" name="Slider OR Template">https://webprojects.open-room.com/updates/mod_orslider/updates.xml</server>
   </updateservers>
 </extension>
