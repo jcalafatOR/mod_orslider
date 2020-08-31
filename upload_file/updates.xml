@@ -5,10 +5,10 @@
 		<description>Módulo para integrar en el template de Open ROOM un Slider de fotos con posibilidad de contenido</description>
 		<element>mod_orslider</element>
 		<type>module</type>
-		<version>1.4.2</version>
+		<version>1.4.0</version>
 		<client>0</client>
 		<downloads>
-			<downloadurl type="update" format="zip">https://webprojects.open-room.com/updates/mod_orslider/mod_orslider-1-4-2.zip</downloadurl>
+			<downloadurl type="update" format="zip">https://webprojects.open-room.com/updates/mod_orslider/mod_orslider-1-4-0.zip</downloadurl>
 		</downloads>
 		<maintainer>Open ROOM</maintainer>
 		<maintainerurl>https://www.open-room.com/</maintainerurl>
